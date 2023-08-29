@@ -42,3 +42,5 @@ git pull --rebase origin main
 把远程的提交，rebase 到本地来
 
 最后，就可以 pull 拉取远端代码， push 推送本地代码到远端了。
+
+pull 的时候可能会要求你输入 yes,直接输入 yes 就可以了
