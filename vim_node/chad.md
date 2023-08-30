@@ -40,9 +40,10 @@ return config
 	删除 .git 文件
 
 - 如果输入 N
-	先创建 /lua/custom/ 这个目录
+
+  	则会先创建 /lua/custom/ 这个目录
   
-	再创建 chadrc.lua 这个文件，并创建以下内容
+	再创建 chadrc.lua 这个文件，并包含以下内容
 	```
 	local M = {}
 	M.ui = {theme = 'onedark'}
