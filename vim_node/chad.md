@@ -6,7 +6,13 @@ modified: '2023-08-30T14:32:44.851Z'
 ---
 
 # chad
- 
+## lua/core/init.lua
+- 加载配置文件
+- 设置全局变量
+- 设置 opt
+- 设置 mason 的安装目录
+- 设置 autocmd
+
 ## lua/core/utils.lua
 ### remove_disabled_keys
 ```
