@@ -1,0 +1,16 @@
+今天看代码的时候，看到如下代码
+
+```cpp
+namespace {
+
+// Modifiable currently set Traits & Colors, yes, they are global to this TU.
+auto current_traits     = esc::Traits{esc::Trait::None};
+auto current_background = esc::Color{esc::Default_color{}};
+auto current_foreground = esc::Color{esc::Default_color{}};
+
+}  // namespase
+```
+
+问题：不理解 namespace 的作用
+
+解决：加上 namespace 后才能定义全局变量，否则在 cpp 文件中不能定义全局变量
