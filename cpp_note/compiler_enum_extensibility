@@ -1,0 +1,34 @@
+给不属于枚举类型的值赋值时，是否有报警
+```cpp
+enum __attribute__((enum_extensibility(closed))) ClosedEnum {
+  A0, A1
+};
+
+enum __attribute__((enum_extensibility(open))) OpenEnum {
+  B0, B1
+};
+
+enum __attribute__((enum_extensibility(closed),flag_enum)) ClosedFlagEnum {
+  C0 = 1 << 0, C1 = 1 << 1
+};
+
+enum __attribute__((enum_extensibility(open),flag_enum)) OpenFlagEnum {
+  D0 = 1 << 0, D1 = 1 << 1
+};
+
+void foo1() {
+  enum ClosedEnum ce;
+  enum OpenEnum oe;
+  enum ClosedFlagEnum cfe;
+  enum OpenFlagEnum ofe;
+
+  ce = A1;           // no warnings
+  ce = 100;          // warning issued
+  oe = B1;           // no warnings
+  oe = 100;          // no warnings
+  cfe = C0 | C1;     // no warnings
+  cfe = C0 | C1 | 4; // warning issued
+  ofe = D0 | D1;     // no warnings
+  ofe = D0 | D1 | 4; // no warnings
+}
+```
