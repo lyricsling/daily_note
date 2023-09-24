@@ -2,7 +2,7 @@
 tags: [Notebooks/vim]
 title: 03 vim api
 created: '2023-05-18T11:31:45.814Z'
-modified: '2023-08-30T14:24:28.941Z'
+modified: '2023-09-16T07:54:31.791Z'
 ---
 
 # 03 vim api
@@ -14,6 +14,43 @@ nvim_create_buf({listed}, {scratch})
  	创建的 buffer 放入 bufferlist 中
 - 参数：scrath
 	throwaway，临时使用的 buffer
+
+## vim.api.nvim_buf_get_name()
+nvim_buf_get_name({buffer})
+- buffer
+  需要获取名字的 buf,0 为当前 buf
+
+## vim.api.nvim_create_autocmd()
+nvim_create_autocmd({event}, {*opts})
+event 触发时，执行 callback
+
+callback 方式
+```lua
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  pattern = {"*.c", "*.h"},
+  callback = function(ev)
+    print(string.format(vim.inspect(ev)))
+  end
+})
+```
+
+参数 ev 的结构如下
+```lua
+buf = 1,
+event = "BufWinEnter",
+file = "/home/llx/lyrics_lab/nvim_lua/api_vim_test.lua",
+id = 102,
+match = "/home/llx/lyrics_lab/nvim_lua/api_vim_test.lua"
+```
+
+command 方式
+```lua
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  pattern = {"*.c", "*.h"},
+  command = "echo 'Entering a C or C++ file'",
+})
+```
+
 
 
 ## vim.api.nvim_get_current_line()
