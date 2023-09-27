@@ -67,7 +67,7 @@ nvim_get_runtime_file({name}, {all})
 - 参数: name
   需要查找的文件名
 - 参数：all
-  是否返回所有的查找结果
+  是否返回所有的查找结果,或者返回第一个查找到的结果
 
 ``` vim
 vim.api.nvim_get_runtime_file("lua/custom/*.lua", true)
