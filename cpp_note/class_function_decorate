@@ -1,0 +1,22 @@
+# 成员函数的引用限定符
+```cpp
+std::string s1 = "hello";
+std::string s2 = "world";
+
+s1 + s2 = "wow"
+auto n = (s1 + s2).find('a');
+```
+
+类似于向右值赋值的操作发生时，编译器不会产生错误。如果你希望阻止此种行为发生，使用下面代码
+```cpp
+class Foo {
+public:
+  Foo &operator=(const Foo&) &;  //只能向可修改的左值赋值
+};
+```
+同时可以向函数加上 const 修饰符，引用限定符必须跟在 const 限定符之后
+
+也可以指定调用函数的类型必须是右值
+```cpp
+Foo &operator()=(const Foo&) &&;
+```
