@@ -1,4 +1,5 @@
 .template 明确指定调用的是模板，而不是成员函数
+
 print_element() 中的 .template 是不可缺少的。
 ```cpp
 c.GetValue<I>();
