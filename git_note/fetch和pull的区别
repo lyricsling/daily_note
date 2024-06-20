@@ -1,0 +1,9 @@
+# 使用git fecth的常规操作
+```bash
+# 拉取
+git fetch origin master
+git log -p master..origin.master
+git merge origin/master
+```
+
+前面两步操作相当于：git pull
